@@ -1,5 +1,7 @@
 # real-world-vue-own-setup
 
+Based on Real World Vue3 form vue mastery but created with vuecli and some modifications.
+
 ## Project setup
 ```
 yarn install
