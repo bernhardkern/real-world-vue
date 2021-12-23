@@ -14,7 +14,7 @@
 <script>
 import EventCard from '@/components/EventCard.vue'
 import EventService from '@/services/EventService.js'
-import {watchEffect} from 'vue'
+import NProgress from 'nprogress'
 
 export default {
   name: 'EventList',
@@ -36,20 +36,39 @@ export default {
       return this.page < totalPages
     },
   },
-  created() {
-    watchEffect(() => {
-      console.log('page in list: ', this.page)
-      this.eventsOfPage = null
-      EventService.getEvents(this.pageSize, this.page)
-        .then((response) => {
-          this.eventsOfPage = response.data
-          this.totalEvents = response.headers['x-total-count']
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    NProgress.start()
+    console.log('beforeRouteEnter page: ', routeTo.query.page)
+    EventService.getEvents(2, routeTo.query.page)
+      .then((response) => {
+        next((viewModel) => {
+          viewModel.eventsOfPage = response.data
+          viewModel.totalEvents = response.headers['x-total-count']
         })
-        .catch((error) => {
-          console.log(error)
-          this.$router.push({name: 'NetworkError'})
-        })
-    })
+      })
+      .catch((error) => {
+        console.log(error)
+        next({name: 'NetworkError'})
+      })
+      .finally(() => {
+        NProgress.done()
+      })
+  },
+  beforeRouteUpdate(routeTo) {
+    NProgress.start()
+    console.log('beforeRouteUpdate page: ', routeTo.query.page)
+    EventService.getEvents(2, routeTo.query.page)
+      .then((response) => {
+        this.eventsOfPage = response.data
+        this.totalEvents = response.headers['x-total-count']
+      })
+      .catch((error) => {
+        console.log(error)
+        return {name: 'NetworkError'}
+      })
+      .finally(() => {
+        NProgress.done()
+      })
   },
 }
 </script>
