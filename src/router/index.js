@@ -8,6 +8,7 @@ import NetworkError from '../views/NetworkError.vue'
 import About from '../views/About.vue'
 import NotFound from '../views/NotFound.vue'
 import NProgress from 'nprogress'
+import GStore from '@/store'
 
 const routes = [
   {
@@ -36,6 +37,7 @@ const routes = [
         path: 'edit',
         name: 'EventEdit',
         component: EventEdit,
+        meta: {requiresAuth: true},
       },
     ],
   },
@@ -72,8 +74,17 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach(() => {
+router.beforeEach((to) => {
   NProgress.start()
+  console.log('meta: ', to.meta)
+
+  if (to.meta.requiresAuth) {
+    GStore.flashMessage = 'this requires auth'
+  }
+
+  setTimeout(() => {
+    GStore.flashMessage = ''
+  }, 3000)
 })
 router.afterEach(() => {
   NProgress.done()
