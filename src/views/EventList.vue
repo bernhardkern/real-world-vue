@@ -4,9 +4,9 @@
     <EventCard v-for="event in eventsOfPage" :key="event.id" :event="event" />
 
     <div class="pagination">
-      <router-link id="page-prev" rel="prev" :to="{name: 'EventList', query: {page: page - 1}}" v-show="page > 1">&#60; Previous</router-link>
+      <router-link id="page-prev" rel="prev" :to="{name: 'EventList', query: {page: page - 1}}" v-show="page > 1">&#60; Previous </router-link>
 
-      <router-link id="page-next" rel="next" :to="{name: 'EventList', query: {page: page + 1}}" v-show="hasNextPage">Next &#62; </router-link>
+      <router-link id="page-next" rel="next" :to="{name: 'EventList', query: {page: page + 1}}" v-show="hasNextPage"> Next &#62; </router-link>
     </div>
   </div>
 </template>
@@ -31,10 +31,10 @@ export default {
   },
   computed: {
     hasNextPage() {
-      var totalPages = Math.ceil(this.totalEvents / 2)
+      const totalPages = Math.ceil(this.totalEvents / 2)
 
       return this.page < totalPages
-    }
+    },
   },
   created() {
     watchEffect(() => {
@@ -47,6 +47,7 @@ export default {
         })
         .catch((error) => {
           console.log(error)
+          this.$router.push({name: 'NetworkError'})
         })
     })
   },
@@ -59,10 +60,12 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
 .pagination {
   display: flex;
   width: 290px;
 }
+
 .pagination a {
   flex: 1;
   text-decoration: none;
