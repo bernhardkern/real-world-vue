@@ -6,6 +6,8 @@
       |
       <router-link :to="{name: 'EventRegister', props: {id: id}}">Register</router-link>
       |
+      <router-link :to="{name: 'EventCreate', props: {id: id}}">Create</router-link>
+      |
       <router-link :to="{name: 'EventEdit', props: {id: id}}">Edit</router-link>
     </div>
     <router-view :event="event" />
