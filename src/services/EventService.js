@@ -3,7 +3,7 @@ import axios from 'axios'
 const apiClient = axios.create({
   baseURL: 'https://my-json-server.typicode.com/Code-Pop/Touring-Vue-Router',
   withCredentials: false,
-  timeout: 1500,
+  timeout: 2500,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
