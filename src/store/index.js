@@ -33,7 +33,7 @@ export default createStore({
       setTimeout(() => commit('SET_FLASH_MESSAGE', ''), 4000)
     },
     createEvent({commit, dispatch}, event) {
-      EventService.postEvent(event)
+      return EventService.postEvent(event)
         .then((response) => {
           commit('SET_EVENT', response.data)
           console.log('Event:', response.data)
@@ -41,7 +41,7 @@ export default createStore({
           dispatch('displayFlashMessage', 'successfully created event < ' + response.data.title + ' >')
         })
         .catch((error) => {
-          console.log(error)
+          throw error
         })
     },
     fetchEvents({commit}, page) {

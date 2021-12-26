@@ -9,6 +9,7 @@ import NetworkError from '../views/NetworkError.vue'
 import NotFound from '../views/NotFound.vue'
 import NProgress from 'nprogress'
 import store from '@/store'
+import ErrorDisplay from '@/views/ErrorDisplay'
 
 const routes = [
   {
@@ -71,6 +72,12 @@ const routes = [
     name: 'NetworkError',
     path: '/network-error',
     component: NetworkError,
+  },
+  {
+    name: 'ErrorDisplay',
+    path: '/error/:error',
+    props: true,
+    component: ErrorDisplay,
   },
 ]
 
