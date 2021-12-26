@@ -7,6 +7,7 @@ export default createStore({
     user: 'Adam Jahr',
     flashMessage: '',
     events: [],
+    event: [],
     totalEvents: 0,
   },
   mutations: {
@@ -18,6 +19,9 @@ export default createStore({
     },
     SET_TOTAL_EVENTS(state, totalEvents) {
       state.totalEvents = totalEvents
+    },
+    SET_EVENT(state, event) {
+      state.event = event
     },
     SET_FLASH_MESSAGE(state, flashMessage) {
       state.flashMessage = flashMessage
@@ -47,6 +51,23 @@ export default createStore({
         .catch((error) => {
           console.log(error)
           router.push({name: 'NetworkError'})
+        })
+    },
+    fetchEvent({commit}, id) {
+      EventService.getEvent(id)
+        .then((response) => {
+          commit('SET_EVENT', response.data)
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            router.push({
+              name: '404Resource',
+              params: {resource: 'event'},
+            })
+          } else {
+            router.push({name: 'NetworkError'})
+          }
+          console.log(error)
         })
     },
   },
