@@ -1,7 +1,7 @@
 <template>
   <h1>Events for Good</h1>
   <div class="events">
-    <EventCard v-for="event in eventsOfPage" :key="event.id" :event="event" />
+    <EventCard v-for="event in events" :key="event.id" :event="event" />
 
     <div class="pagination">
       <router-link id="page-prev" rel="prev" :to="{name: 'EventList', query: {page: page - 1}}" v-show="page > 1">&#60; Previous </router-link>
@@ -13,7 +13,8 @@
 
 <script>
 import EventCard from '@/components/EventCard.vue'
-import EventService from '@/services/EventService.js'
+import {mapState} from 'vuex'
+import {watchEffect} from 'vue'
 
 export default {
   name: 'EventList',
@@ -23,43 +24,21 @@ export default {
   props: ['page'],
   data() {
     return {
-      eventsOfPage: null,
       pageSize: 2,
-      totalEvents: 0,
+      firstPage: 1,
     }
   },
   computed: {
+    ...mapState(['totalEvents', 'events']),
     hasNextPage() {
-      const totalPages = Math.ceil(this.totalEvents / 2)
+      const totalPages = Math.ceil(this.totalEvents / this.pageSize)
 
       return this.page < totalPages
     },
   },
-  beforeRouteEnter(routeTo, routeFrom, next) {
-    console.log('beforeRouteEnter page: ', routeTo.query.page)
-    EventService.getEvents(2, routeTo.query.page)
-      .then((response) => {
-        next((viewModel) => {
-          viewModel.eventsOfPage = response.data
-          viewModel.totalEvents = response.headers['x-total-count']
-        })
-      })
-      .catch((error) => {
-        console.log(error)
-        next({name: 'NetworkError'})
-      })
-  },
-  beforeRouteUpdate(routeTo) {
-    console.log('beforeRouteUpdate page: ', routeTo.query.page)
-    return EventService.getEvents(2, routeTo.query.page)
-      .then((response) => {
-        this.eventsOfPage = response.data
-        this.totalEvents = response.headers['x-total-count']
-      })
-      .catch((error) => {
-        console.log(error)
-        return {name: 'NetworkError'}
-      })
+
+  created() {
+    watchEffect(() => this.$store.dispatch('fetchEvents', this.$route.query.page || this.firstPage))
   },
 }
 </script>
