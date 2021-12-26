@@ -27,6 +27,7 @@
 
       <label>Time</label>
       <input v-model="event.time" type="text" placeholder="Time" />
+      <div>Events: {{ events }}</div>
 
       <button type="submit">Submit</button>
     </form>
@@ -35,6 +36,8 @@
 
 <script>
 import {v4 as uuidV4} from 'uuid'
+import EventService from '@/services/EventService'
+import {mapState} from 'vuex'
 export default {
   data() {
     return {
@@ -51,11 +54,23 @@ export default {
       },
     }
   },
+  computed: mapState(['events']),
   methods: {
     onSubmit() {
-      this.event.id = uuidV4()
-      this.event.organizer = this.$store.state.user
-      console.log('Event:', this.event)
+      const event = {
+        ...this.event,
+        id: uuidV4(),
+        organizer: this.$store.state.user,
+      }
+      EventService.postEvent(event)
+        .then((result) => {
+          this.$store.commit('ADD_EVENT', result.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+
+      console.log('Event:', event)
     },
   },
 }

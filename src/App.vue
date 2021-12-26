@@ -12,9 +12,10 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-  data() {
-    'TestFlash'
+  computed: {
+    ...mapState(['flashMessage']),
   },
 }
 </script>

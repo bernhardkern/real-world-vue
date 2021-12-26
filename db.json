@@ -1,70 +1,180 @@
 {
-    "events": [
-        {
-            "id": 123,
-            "category": "animal welfare",
-            "title": "Cat Adoption Day",
-            "description": "Find your new feline friend at this event.",
-            "location": "Meow Town",
-            "date": "January 28, 2022",
-            "time": "12:00",
-            "petsAllowed": true,
-            "organizer": "Kat Laydee"
-        },
-        {
-            "id": 456,
-            "category": "food",
-            "title": "Community Gardening",
-            "description": "Join us as we tend to the community edible plants.",
-            "location": "Flora City",
-            "date": "March 14, 2022",
-            "time": "10:00",
-            "petsAllowed": true,
-            "organizer": "Fern Pollin"
-        },
-        {
-            "id": 789,
-            "category": "sustainability",
-            "title": "Beach Cleanup",
-            "description": "Help pick up trash along the shore.",
-            "location": "Playa Del Carmen",
-            "date": "July 22, 2022",
-            "time": "11:00",
-            "petsAllowed": false,
-            "organizer": "Carey Wales"
-        },
-        {
-            "id": 1001,
-            "category": "animal welfare",
-            "title": "Dog Adoption Day",
-            "description": "Find your new canine friend at this event.",
-            "location": "Woof Town",
-            "date": "August 28, 2022",
-            "time": "12:00",
-            "petsAllowed": true,
-            "organizer": "Dawg Dahd"
-        },
-        {
-            "id": 1002,
-            "category": "food",
-            "title": "Canned Food Drive",
-            "description": "Bring your canned food to donate to those in need.",
-            "location": "Tin City",
-            "date": "September 14, 2022",
-            "time": "3:00",
-            "petsAllowed": true,
-            "organizer": "Kahn Opiner"
-        },
-        {
-            "id": 1003,
-            "category": "sustainability",
-            "title": "Highway Cleanup",
-            "description": "Help pick up trash along the highway.",
-            "location": "Highway 50",
-            "date": "July 22, 2022",
-            "time": "11:00",
-            "petsAllowed": false,
-            "organizer": "Brody Kill"
-        }
-    ]
+  "events": [
+    {
+      "id": 123,
+      "category": "animal welfare",
+      "title": "Cat Adoption Day",
+      "description": "Find your new feline friend at this event.",
+      "location": "Meow Town",
+      "date": "January 28, 2022",
+      "time": "12:00",
+      "petsAllowed": true,
+      "organizer": "Kat Laydee"
+    },
+    {
+      "id": 456,
+      "category": "food",
+      "title": "Community Gardening",
+      "description": "Join us as we tend to the community edible plants.",
+      "location": "Flora City",
+      "date": "March 14, 2022",
+      "time": "10:00",
+      "petsAllowed": true,
+      "organizer": "Fern Pollin"
+    },
+    {
+      "id": 789,
+      "category": "sustainability",
+      "title": "Beach Cleanup",
+      "description": "Help pick up trash along the shore.",
+      "location": "Playa Del Carmen",
+      "date": "July 22, 2022",
+      "time": "11:00",
+      "petsAllowed": false,
+      "organizer": "Carey Wales"
+    },
+    {
+      "id": 1001,
+      "category": "animal welfare",
+      "title": "Dog Adoption Day",
+      "description": "Find your new canine friend at this event.",
+      "location": "Woof Town",
+      "date": "August 28, 2022",
+      "time": "12:00",
+      "petsAllowed": true,
+      "organizer": "Dawg Dahd"
+    },
+    {
+      "id": 1002,
+      "category": "food",
+      "title": "Canned Food Drive",
+      "description": "Bring your canned food to donate to those in need.",
+      "location": "Tin City",
+      "date": "September 14, 2022",
+      "time": "3:00",
+      "petsAllowed": true,
+      "organizer": "Kahn Opiner"
+    },
+    {
+      "id": 1003,
+      "category": "sustainability",
+      "title": "Highway Cleanup",
+      "description": "Help pick up trash along the highway.",
+      "location": "Highway 50",
+      "date": "July 22, 2022",
+      "time": "11:00",
+      "petsAllowed": false,
+      "organizer": "Brody Kill"
+    },
+    {
+      "id": "0d2e5779-35e1-481b-a6c2-aadbf391c629",
+      "category": "nature",
+      "title": "abc",
+      "description": "abc",
+      "location": "abc",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "f175daa1-7de7-4c20-b5f6-adc7f6e72759",
+      "category": "nature",
+      "title": "abc",
+      "description": "abc",
+      "location": "abc",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "9d544425-8347-4afe-9010-18307d6539c7",
+      "category": "nature",
+      "title": "Camilo Title",
+      "description": "Camilo Title",
+      "location": "Munich",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "08298453-9be7-49f3-963d-46558b66cb97",
+      "category": "nature",
+      "title": "Camilo Title",
+      "description": "Camilo Title",
+      "location": "Munich",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "5928f0b3-f429-4f74-908b-8caf9927d3a0",
+      "category": "nature",
+      "title": "a",
+      "description": "b",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "784861f3-32f3-44c6-a45c-5320833da954",
+      "category": "nature",
+      "title": "t",
+      "description": "t",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "b88a152f-7129-40a6-b0b9-fb9764fa9248",
+      "category": "nature",
+      "title": "z",
+      "description": "z",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "3e34e61a-7585-481d-930e-f956c9884a64",
+      "category": "nature",
+      "title": "camtit",
+      "description": "camdesc",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "3f80e828-16d0-4928-bceb-58c7240c9da7",
+      "category": "nature",
+      "title": "cam",
+      "description": "cam",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "73be04fe-008e-44f0-a6c6-cf18ae298724",
+      "category": "animal welfare",
+      "title": " be",
+      "description": "be",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "20e741ac-cb67-4b23-8523-636d832be043",
+      "category": "animal welfare",
+      "title": " be",
+      "description": "be",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    }
+  ]
 }
