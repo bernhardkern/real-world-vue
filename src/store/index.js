@@ -6,4 +6,6 @@ export default createStore({
     flashMessage: '',
   },
   mutations: {},
+  actions: {},
+  modules: {},
 })
