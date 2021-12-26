@@ -35,11 +35,10 @@ export default createStore({
     createEvent({commit, dispatch}, event) {
       EventService.postEvent(event)
         .then((response) => {
-          commit('ADD_EVENT', response.data)
+          commit('SET_EVENT', response.data)
           console.log('Event:', response.data)
           dispatch('fetchEvents', 1)
           dispatch('displayFlashMessage', 'successfully created event < ' + response.data.title + ' >')
-          router.push({name: 'EventList'})
         })
         .catch((error) => {
           console.log(error)
