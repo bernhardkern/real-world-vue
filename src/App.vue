@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div id="flashMessage" v-if="GStore.flashMessage">
-      {{ GStore.flashMessage }}
+    <div id="flashMessage" v-if="flashMessage">
+      {{ flashMessage }}
     </div>
     <div id="nav">
       <router-link :to="{name: 'EventList'}">Events</router-link> |
@@ -13,7 +13,9 @@
 
 <script>
 export default {
-  inject: ['GStore'],
+  data() {
+    'TestFlash'
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@ import EventEdit from '../views/event/Edit.vue'
 import NetworkError from '../views/NetworkError.vue'
 import NotFound from '../views/NotFound.vue'
 import NProgress from 'nprogress'
-import GStore from '@/store'
+import store from '@/store'
 
 const routes = [
   {
@@ -93,11 +93,11 @@ router.beforeEach((to) => {
   console.log('meta: ', to.meta)
 
   if (to.meta.requiresAuth) {
-    GStore.flashMessage = 'this requires auth'
+    store.state.flashMessage = 'this requires auth'
   }
 
   setTimeout(() => {
-    GStore.flashMessage = ''
+    store.state.flashMessage = ''
   }, 3000)
 })
 router.afterEach(() => {
