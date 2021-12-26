@@ -14,9 +14,7 @@
 <script>
 import {mapState} from 'vuex'
 export default {
-  computed: {
-    ...mapState(['flashMessage']),
-  },
+  computed: mapState(['flashMessage']),
 }
 </script>
 
@@ -40,7 +38,7 @@ export default {
 
 #flashMessage {
   animation-name: yellowfade;
-  animation-duration: 3s;
+  animation-duration: 4s;
 }
 
 #nav {

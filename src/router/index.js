@@ -93,12 +93,8 @@ router.beforeEach((to) => {
   console.log('meta: ', to.meta)
 
   if (to.meta.requiresAuth) {
-    store.state.flashMessage = 'this requires auth'
+    store.dispatch('displayFlashMessage', 'this requires auth')
   }
-
-  setTimeout(() => {
-    store.state.flashMessage = ''
-  }, 3000)
 })
 router.afterEach(() => {
   NProgress.done()

@@ -28,14 +28,17 @@ export default createStore({
     },
   },
   actions: {
+    displayFlashMessage({commit}, message) {
+      commit('SET_FLASH_MESSAGE', message)
+      setTimeout(() => commit('SET_FLASH_MESSAGE', ''), 4000)
+    },
     createEvent({commit, dispatch}, event) {
       EventService.postEvent(event)
         .then((response) => {
           commit('ADD_EVENT', response.data)
           console.log('Event:', response.data)
           dispatch('fetchEvents', 1)
-          commit('SET_FLASH_MESSAGE', 'successfully created event < ' + response.data.title + ' >')
-          setTimeout(() => commit('SET_FLASH_MESSAGE', ''), 3000)
+          dispatch('displayFlashMessage', 'successfully created event < ' + response.data.title + ' >')
           router.push({name: 'EventList'})
         })
         .catch((error) => {

@@ -6,15 +6,9 @@
 <script>
 export default {
   props: ['event'],
-  inject: ['GStore'],
   methods: {
     register() {
-      this.GStore.flashMessage = 'You have registered successfully to ' + this.event.title
-
-      setTimeout(() => {
-        this.GStore.flashMessage = ''
-      }, 3000)
-
+      this.$store.dispatch('displayFlashMessage', 'You have registered successfully to ' + this.event.title)
       console.log('successfully registered (no api yet)')
       this.$router.push({name: 'EventDetails'})
     },
